@@ -3,6 +3,14 @@ div.tabArea{
 	font-weight: bold;
 }
 
+div.wrapper{
+	width: 100%;
+}
+iframe.tabContent {
+	width: 100%;
+	height: 80%;
+}
+
 a.tab{
 	/*background-color: #fofofo;*/
 	/*background-color: #CBCBCD;*/
