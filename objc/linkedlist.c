@@ -1,20 +1,49 @@
 #import "stdlib.h"
 #import "stdio.h"
+#import "assert.h"
 struct node {
    int data;
    struct node *next;
 };
 
+int getNth(struct node* head, int n){
+  assert(n >=0); 
+  struct node* current = head;
+  int count = 0;
+  while (current != NULL){
+      if (n == count){
+		return current->data;
+	  }
+	  count++;
+      current = current->next;
+  }
+  return -1;
+}
+
+int Count(struct node* head, int value){
+  struct node* current = head;
+  int count = 0;
+  while (current != NULL){
+      printf("checking if %d = %d\n", value, current->data);
+      if (current->data == value){
+		printf("it does\n");
+		count++; 
+	  }
+      current = current->next;
+  }
+  return count;
+}
+
 int Length(struct node* head){
   struct node* current = head;
   int count = 0;
-  printf("\nentering loop");
+  printf("entering loop\n");
   while (current != NULL){
-      printf("\nincrementing count %d, value is %d", count, current->data);
+      printf("incrementing count %d, value is %d\n", count, current->data);
       count++; 
       current = current->next;
   }
-  printf("\nfinal count %d", count);
+  printf("final count %d\n", count);
   return count;
 }
 
@@ -51,10 +80,14 @@ void Push(struct node** head, int value){
 
 int main(){
   struct node* list = NULL;
-  printf("\nlength of empty list  %d", Length(list));
-  //list = BuildOneTwoThree();
-  //printf("\nlength of 123 list %d", Length(list));
+  printf("length of empty list  %d\n", Length(list));
+  list = BuildOneTwoThree();
+  printf("\nlength of 123 list %d", Length(list));
   Push(&list, 5);
-  printf("\nlength of 5123 list %d", Length(list));
+  Push(&list, 5);
+  printf("length of 55123 list %d\n", Length(list));
+  printf("Problem 1: number of 5's %d\n", Count(list, 5));
+  printf("Problem 1: number of 1's %d\n", Count(list, 1));
+  printf("Problem 2: the 3rd (list[2]) element is: %d\n", getNth(list, 2));
   return 1;
 }
