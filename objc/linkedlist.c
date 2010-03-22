@@ -6,6 +6,27 @@ struct node {
    struct node *next;
 };
 
+int Reverse(struct node** head){
+  struct node* current = *head;
+  struct node* theNextOne = current->next;
+  struct node* theThirdOne = theNextOne->next;
+  while (current != NULL){
+	  if(current == *head){
+		current->next = NULL;
+	  } 
+	  theNextOne->next = current;
+	  current = theNextOne;
+      if(theThirdOne == NULL){
+		 *head = theNextOne;
+         return 1;
+      }
+      theNextOne = theThirdOne;
+	  theThirdOne = theThirdOne->next;
+  }
+
+return 1;
+}
+
 int InsertNth(struct node* head, int n, int value){
   assert(n >=0); 
   struct node* current = head;
@@ -48,9 +69,7 @@ int Count(struct node* head, int value){
   struct node* current = head;
   int count = 0;
   while (current != NULL){
-      printf("checking if %d = %d\n", value, current->data);
       if (current->data == value){
-		printf("it does\n");
 		count++; 
 	  }
       current = current->next;
@@ -61,24 +80,19 @@ int Count(struct node* head, int value){
 int Length(struct node* head){
   struct node* current = head;
   int count = 0;
-  printf("entering loop\n");
   while (current != NULL){
-      printf("incrementing count %d, value is %d\n", count, current->data);
       count++; 
       current = current->next;
   }
-  printf("final count %d\n", count);
   return count;
 }
 
 int PrintList(struct node* head){
   struct node* current = head;
-  printf("entering loop\n");
   while (current != NULL){
       printf("%d", current->data);
       current = current->next;
   }
-  printf("\n");
   return 1;
 }
 
@@ -91,15 +105,12 @@ struct node* BuildOneTwoThree(){
   second = malloc (sizeof(struct node));
   third = malloc (sizeof(struct node));
 
-  printf("1");
   head->data=1;
   head->next = second;
 
-  printf("2");
   second->data=2;
   second->next = third;
 
-  printf("3");
   third->data=3;
   third->next = NULL;
 
@@ -124,8 +135,15 @@ int main(){
   printf("Problem 1: number of 5's %d\n", Count(list, 5));
   printf("Problem 1: number of 1's %d\n", Count(list, 1));
   printf("Problem 2: the 3rd (list[2]) element is: %d\n", GetNth(list, 2));
-  printf("Problem 5: Add 6 as the 3th element");
+  printf("Problem 5: Add 6 as the 3th element\n");
   InsertNth(list, 3, 6);
+  printf("print the list\n");
   PrintList(list);
+
+  printf("\nProblem 17: Reverse the list\n");
+  Reverse(&list);
+  PrintList(list);
+  printf("\n");
+  //Reverse(list);
   return 1;
 }
