@@ -27,8 +27,7 @@ def evaluate(stream):
     for x in tuple_list:
         set_map[x[0]].append(x[1])
 
-    print set_map
-    print 'a has', [x for x in a if x not in b], 'which are not in b'
-    print 'b has', [x for x in b if x not in a], 'which are not in a'
+    print 'a has', [x for x in set_map[a] if x not in set_map[b]], 'which are not in b'
+    print 'b has', [x for x in set_map[b] if x not in set_map[a]], 'which are not in a'
 
 evaluate(str(sys.argv[1]))
