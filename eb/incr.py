@@ -4,12 +4,13 @@ class Crementors:
         pass
 
     def decrement(self, i):
-        if i == -1:
-            return -2
+        #just for kicks
+        if i == ~1/2:
+            return ~1
         if i == 0:
-            return -1 
+            return ~1/2
         if  i % 2 == 0:
-            return self.decrement(i >> 1) << 1|1
+            return self.decrement(i>>1)<<1 | 1
         else:
             return i^1
     
@@ -19,9 +20,11 @@ class Crementors:
         #  number just by flipping the least significant bit.
         #  For odd digits, we must flip the bit, then carry 
         #  the one, which is simply addition on the rest of
-        #  the digit. The base cases are 0 and -1
-        #base cases
-        if i == -1:
+        #  the digit. The special case is negative 1
+
+        #base cases: i = negative 1....or 0 decremented by 1...
+        #...see what i did there?
+        if i == ~1/2:
             return 0
 
         #for even numbers, simply return the remainder of the digits
@@ -32,16 +35,24 @@ class Crementors:
         #This is me flipping a 1 to a 0 and recursively adding 1 to 
         # rest of the digits
         else:
-            return self.increment(i>>1)<<1|0
+            return self.increment(i>>1)<<1 | 0
 
 
 ###Test Driver
 ###
 ### you can probably ignore this
 c = Crementors()
-test_value = int(sys.argv[1])
+try:
+    test_value = int(sys.argv[1])
+except:
+    print "usage: python incr.py <int value>"
+    raise
     
-print test_value,"+1 =",c.increment(test_value)
+    
+assert(test_value+1 == c.increment(test_value))
+assert(test_value-1 == c.decrement(test_value))
+
+print test_value,"+ 1 =",c.increment(test_value)
 if not test_value - 1 == c.decrement(test_value):
    print "error decrementing at ",test_value
 if not  test_value + 1 == c.increment(test_value):
