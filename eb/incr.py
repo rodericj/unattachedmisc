@@ -35,7 +35,7 @@ class Crementors:
         #This is me flipping a 1 to a 0 and recursively adding 1 to 
         # rest of the digits
         else:
-            return self.increment(i>>1)<<1 | 0
+            return self.increment(i>>1)<<1 
 
 
 ###Test Driver
