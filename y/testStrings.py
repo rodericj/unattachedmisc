@@ -14,16 +14,13 @@ given_doc = "Little star's deep dish pizza sure is fantastic."
 given_query = "deep dish pizza"
 given_result = "Little star's [[HIGHLIGHT]]deep dish pizza[[ENDHIGHLIGHT]] sure is fantastic."
 
-cheeseburger_result = "Cheeseburger, [[HIGHLIGHT]]sweet potato fries[[ENDHIGHLIGHT]], milkshakes, oh my SO FREAKIN' GOOD."
+cheeseburger_result = "Cheeseburger, [[HIGHLIGHT]]sweet potato fries[[ENDHIGHLIGHT]], milkshakes, oh my SO FREAKIN' GOOD!"
 cheeseburger_query = "sweet potato fries"
-cheeseburger_doc = """Gott's got solid cheeseburgers, some of the best tasting sweet potato fries, onion rings, and the cannot miss white pistachio milkshake, this made for a heavy, but tasty lunch.  I was also wondering what all the buzz was about since there always seems to be a long line there.  
-
-I've been told that the fish tacos are also pretty solid there too, so it looks like another tip is in store!
-
-The only thing I can probably fault it on is the price.  I understand that this is supposed to be a step up from your typical in n outs and five guys, but it was hard to gauge whether the taste was also $2-3 better."""
+cheeseburger_doc = "Cheeseburger, sweet potato fries, milkshakes, oh my SO FREAKIN' GOOD!"
 
 pizzahacker_query = "tomato sauce"
 pizzahacker_result = "The standout item that night was the juicy and rich [[HIGHLIGHT]]tomato sauce[[ENDHIGHLIGHT]]." 
+pizzahacker_result = "And awesome is what we got from a traditional Margherita pizza with fresh basil, straight from an herb plant, beautifully torn fresh mozzarella, and tasty heirloom [[HIGHLIGHT]]tomato sauce[[ENDHIGHLIGHT]]."
 pizzahacker = """Looooooong overdue review! But I can probably vouch that Matt and I have eaten more pizzas from Pizza Hacker combined than most Pizza Hacker monsters combined. The exceptions of course are Jeff the inventor himself and his lucky guinea pigs.
 
 Given how much Matt talks trash about the pizzas around the Bay Area, I was curious what he would think about this new street cart movement with the Pizza Hacker. I forwarded Matt some pictures and a few good article writeup on the FrankenWeber. One look at the slight charred, bubbly crusts, and he gave a thumbs up, "This looks promising."
