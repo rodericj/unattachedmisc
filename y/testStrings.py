@@ -1,3 +1,7 @@
+rambler_doc = "hello. The search term is 'here' and i just wanted to ramble on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on "
+rambler_query = "here"
+rambler_result = "The search term is '[[HIGHLIGHT]]here[[ENDHIGHLIGHT]]' and i just wanted to ramble on and on and on and"
+
 unicode_doc = u"\xe4\xf6\xfc and some other things"
 unicode_query = u'\xe4\xf6\xfc'
 unicode_result = u"[[HIGHLIGHT]]\xe4\xf6\xfc[[ENDHIGHLIGHT]] and some other things"
@@ -20,7 +24,7 @@ cheeseburger_doc = "Cheeseburger, sweet potato fries, milkshakes, oh my SO FREAK
 
 pizzahacker_query = "tomato sauce"
 pizzahacker_result = "The standout item that night was the juicy and rich [[HIGHLIGHT]]tomato sauce[[ENDHIGHLIGHT]]." 
-pizzahacker_result = "And awesome is what we got from a traditional Margherita pizza with fresh basil, straight from an herb plant, beautifully torn fresh mozzarella, and tasty heirloom [[HIGHLIGHT]]tomato sauce[[ENDHIGHLIGHT]]."
+pizzahacker_result = "tifully torn fresh mozzarella, and tasty heirloom [[HIGHLIGHT]]tomato sauce[[ENDHIGHLIGHT]]."
 pizzahacker = """Looooooong overdue review! But I can probably vouch that Matt and I have eaten more pizzas from Pizza Hacker combined than most Pizza Hacker monsters combined. The exceptions of course are Jeff the inventor himself and his lucky guinea pigs.
 
 Given how much Matt talks trash about the pizzas around the Bay Area, I was curious what he would think about this new street cart movement with the Pizza Hacker. I forwarded Matt some pictures and a few good article writeup on the FrankenWeber. One look at the slight charred, bubbly crusts, and he gave a thumbs up, "This looks promising."
