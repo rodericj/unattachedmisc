@@ -1,27 +1,46 @@
+twosoups_doc = "Tomato soup is good Tomato soup"
+twosoups_query = "Tomato soup"
+twosoups_result = "[[HIGHLIGHT]]Tomato soup[[ENDHIGHLIGHT]] is good"
+
+
+### Wanted to show how the query string being split up causes all g's to be chopped
+allone_doc = "Heytherebigstring"
+allone_query = "g"
+allone_result = "Heytherebi[[HIGHLIGHT]]g[[ENDHIGHLIGHT]]strin"
+
+
+### Wanted to show very long strings and how they are chopped at a given length
 rambler_doc = "hello. The search term is 'here' and i just wanted to ramble on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on and on "
 rambler_query = "here"
 rambler_result = "The search term is '[[HIGHLIGHT]]here[[ENDHIGHLIGHT]]' and i just wanted to ramble on and on and on and"
 
+
+### Not unit test suite is complete without unicode tests
 unicode_doc = u"\xe4\xf6\xfc and some other things"
 unicode_query = u'\xe4\xf6\xfc'
 unicode_result = u"[[HIGHLIGHT]]\xe4\xf6\xfc[[ENDHIGHLIGHT]] and some other things"
 
+### The empty string edge case
 notfound_doc = "hello, this is a thing"
 notfound_query = "I don't see this anywhere in the document"
 notfound_result = ""
 
+###Entire string is the entire query
 whole_doc = "strawberry docquery"
 whole_query = "strawberry docquery"
 whole_result = "[[HIGHLIGHT]]strawberry docquery[[ENDHIGHLIGHT]]"
 
+### first test
 given_doc = "Little star's deep dish pizza sure is fantastic."
 given_query = "deep dish pizza"
 given_result = "Little star's [[HIGHLIGHT]]deep dish pizza[[ENDHIGHLIGHT]] sure is fantastic."
 
+### Standard case
 cheeseburger_result = "Cheeseburger, [[HIGHLIGHT]]sweet potato fries[[ENDHIGHLIGHT]], milkshakes, oh my SO FREAKIN' GOOD!"
 cheeseburger_query = "sweet potato fries"
 cheeseburger_doc = "Cheeseburger, sweet potato fries, milkshakes, oh my SO FREAKIN' GOOD!"
 
+### Multiple occurences in the document. 
 pizzahacker_query = "tomato sauce"
 pizzahacker_result = "The standout item that night was the juicy and rich [[HIGHLIGHT]]tomato sauce[[ENDHIGHLIGHT]]." 
 pizzahacker_result = "tifully torn fresh mozzarella, and tasty heirloom [[HIGHLIGHT]]tomato sauce[[ENDHIGHLIGHT]]."

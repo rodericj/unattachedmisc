@@ -6,12 +6,19 @@ class TestUnitTest(unittest.TestCase):
     def prettyPrint(self, res, expected):
         return "\n" + res + "\n!=\n" + expected
 
+    def testTwoSoups(self):
+        res = segment.highlight_doc(testStrings.twosoups_doc, testStrings.twosoups_query)
+        assert res == testStrings.twosoups_result, self.prettyPrint(res, testStrings.twosoups_result)
 
-    def testRamblingTest(self):
+    def testAllOneWord(self):
+        res = segment.highlight_doc(testStrings.allone_doc, testStrings.allone_query)
+        assert res == testStrings.allone_result, self.prettyPrint(res, testStrings.allone_result)
+
+    def testRambling(self):
         res = segment.highlight_doc(testStrings.rambler_doc, testStrings.rambler_query)
         assert res == testStrings.rambler_result, self.prettyPrint(res, testStrings.rambler_result)
 
-    def testGivenTest(self):
+    def testGiven(self):
         res = segment.highlight_doc(testStrings.given_doc, testStrings.given_query)
         assert res == testStrings.given_result, self.prettyPrint(res, testStrings.given_result)
 

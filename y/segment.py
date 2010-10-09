@@ -1,4 +1,12 @@
+"""
+    'segment' is a function to emulate Yelp's segment highlighting based on a search string
+
+    usage: python segment.py <document> <query>
+"""
+import sys
 import re
+import getopt
+
 def highlight_doc(doc, query):
     """Given a doc and a query, return a highlighted segment within the doc
          of the query. 
@@ -20,7 +28,7 @@ def highlight_doc(doc, query):
     #setup highlight constants
     SH = '[[HIGHLIGHT]]'
     EH = '[[ENDHIGHLIGHT]]'
-    punctuation = "[\.\?\!]"
+    PUNCTUATION = "[\.\?\!]"
 
     CHOPLENGTH = 50
 
@@ -44,7 +52,7 @@ def highlight_doc(doc, query):
 
         #now we have 3 sections, [front of sentence, the query, back of sentence]
         #chop front of sentence at punctuation
-        puncPattern = re.compile(punctuation)
+        puncPattern = re.compile(PUNCTUATION)
         frontHalf = puncPattern.split(splitByQuery[0])[-1]
 
         backHalf = splitByQuery[1]
@@ -69,4 +77,31 @@ def highlight_doc(doc, query):
         ret = frontHalf[-50:] + SH + query + EH + backHalf[:CHOPLENGTH]
         retArray.append(ret)
 
-    return retArray[0].lstrip()
+    return retArray[0].lstrip().strip()
+
+def main():
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "h", ["help"])
+    except getopt.error, msg:
+        print msg
+        print "for help use --help"
+        sys.exit(2)
+
+    # process options
+    for o, a in opts:
+        if o in ("-h", "--help"):
+            print __doc__
+            sys.exit(0)
+    if len(args) != 2:
+        print __doc__
+        sys.exit(0)
+
+    doc, query = args[0], args[1]
+
+    print highlight_doc(doc, query)
+    
+
+if __name__=="__main__":
+    main()
+
+
