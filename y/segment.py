@@ -1,14 +1,7 @@
 """
-    'segment' is a function to emulate Yelp's segment highlighting based on a search string
+    'hightlight_doc' is a function to emulate Yelp's segment highlighting based on a search string
 
-    usage: python segment.py <document> <query>
-"""
-import sys
-import re
-import getopt
-
-def highlight_doc(doc, query):
-    """Given a doc and a query, return a highlighted segment within the doc
+    Given a doc and a query, return a highlighted segment within the doc
          of the query. 
          For example given:
             doc = "abcdefg"
@@ -23,6 +16,21 @@ def highlight_doc(doc, query):
              'ab', 'cd', 'efg' 
        4. Handle special cases around punctuation
        5. Build the resulting string with the HIGHLIGHT marks
+    
+    usage: python segment.py <document> <query>
+"""
+import sys
+import re
+import getopt
+
+def highlight_doc(doc, query):
+    """
+    Args: 
+        doc - String that is a document to be highlighted 
+        query - String that contains the search query
+
+    Returns: 
+        The the most relevant snippet with the query terms highlighted.
     """
 
     #setup highlight constants
